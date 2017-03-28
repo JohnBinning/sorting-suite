@@ -4,26 +4,31 @@ function mergeSort (arr) {
     return arr
   }
   var mid = arr.length / 2
-  var left = arr.slice(0, mid)
-  var right = arr.slice(mid, arr.length)
+  var leftArray = arr.slice(0, mid)
+  var rightArray = arr.slice(mid, arr.length)
 
-  return merge(mergeSort(left), mergeSort(right))
+  return merge(mergeSort(leftArray), mergeSort(rightArray))
 }
 
-function merge (left, right)  {
+function merge (leftArray, rightArray)  {
   var sorted = []
 
-  while (left.length && right.length) {
-    if (left[0] >= right[0]) {
-      sorted.push(right.shift())
+  while (leftArray.length && rightArray.length) {
+    if (leftArray[0] >= rightArray[0]) {
+      sorted.push(rightArray.shift())
     } else {
-      sorted.push(left.shift())
+      sorted.push(leftArray.shift())
     }
-  } while (left.length) {
-    sorted.push(left.shift())
-  } while (right.length) {
-    sorted.push(right.shift())
   }
+
+  while (leftArray.length) {
+    sorted.push(leftArray.shift())
+  }
+
+  while (rightArray.length) {
+    sorted.push(rightArray.shift())
+  }
+
   return sorted
 }
 
