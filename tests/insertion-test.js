@@ -5,11 +5,12 @@ const assert = require('chai').assert
 describe('insertionSort', () => {
   let numbs = [6, 30, 1, 99, 2, 98, 7, 92, 88, 1, 40, 5, 99, 100, 77, 20, 1, 80]
   let letters = ['d', 'b', 'c', 'a']
-  let randomNumbs = [];
   let randomLetters = [];
 
 
   const randGenerator = (min, max, lengthNumber) => {
+    let randomNumbs = [];
+
     for (let i = 0; i < lengthNumber; i++) {
       randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
     }
@@ -46,7 +47,8 @@ describe('insertionSort', () => {
   })
 
   it('should sort random letters', () => {
-    let randLets = insertionSort(randomLetters)
+    let speedLetters = randGenerator(1, 100, 5000)
+    let randLets = insertionSort(speedLetters)
 
     assert.equal(randLets[0] <= randLets[1], true)
     assert.equal(randLets[0] <= randLets[3], true)
@@ -66,6 +68,12 @@ describe('insertionSort', () => {
     assert.deepEqual(insertionSort(testerNumb), [9, 19, 41, 75, 76])
   })
 
+  it('should sort negative numbers', () => {
+    let negNumbs = [10, -4, -2, 18]
+
+    assert.deepEqual(insertionSort(negNumbs), [-4, -2, 10, 18])
+  })
+
   it('should return an array', () => {
     let testerNumb2 = [90, 1, 25, 7, 30]
 
@@ -75,7 +83,11 @@ describe('insertionSort', () => {
   })
 
   it('should sort random numbers', () => {
-    let rands = insertionSort(randomNumbs)
+
+    let speedNumbers = randGenerator(1, 100, 5000)
+    // let randNumb = insertionSort(speedNumbers)
+
+    let rands = insertionSort(speedNumbers)
 
     assert.equal(rands[0] <= rands[1], true)
     assert.equal(rands[0] <= rands[3], true)
