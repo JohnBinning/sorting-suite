@@ -84,7 +84,6 @@ describe('mergeSort', () => {
 
   it('should sort random numbers', () => {
     let newRandNumbs = randGenerator(1, 100, 5000)
-    console.log(newRandNumbs.length)
     let rands = mergeSort(newRandNumbs)
 
     assert.equal(rands[0] <= rands[1], true)
@@ -111,6 +110,31 @@ describe('mergeSort', () => {
 
     assert.deepEqual(sortedLength, [2, 4, 5, 9])
     assert.equal(sortedLength.length, 4)
+  })
+
+})
+
+describe('merge of merge sort', () => {
+
+  it('should be a function', () =>{
+    assert.isFunction(merge)
+  })
+
+  it('should return an array', () => {
+    let testerNumb = [2, 7, 90, 1]
+    let testerNumb2 = [90, 1, 25, 7, 30]
+    let sorted = merge(testerNumb, testerNumb2)
+
+    assert.equal(Array.isArray(sorted), true)
+  })
+
+  it('the new array length should === the old arrays combined length', () => {
+    let testerNumb = [2, 7, 90, 1]
+    let testerNumb2 = [90, 1, 25, 7, 30]
+    let origLengths = testerNumb.length + testerNumb2.length
+    let sorted = merge(testerNumb, testerNumb2)
+
+    assert.equal(sorted.length === origLengths, true)
   })
 
 })
