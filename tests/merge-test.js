@@ -1,24 +1,11 @@
-const mergeSort = require('../scripts/merge-sort')
-const assert = require('chai').assert
-
+import { assert } from 'chai'
+import {mergeSort, merge} from '../scripts/merge-sort'
+import {randGenerator} from '../scripts/randGenerator'
 
 describe('mergeSort', () => {
   let numbs = [6, 30, 1, 99, 2, 98, 7, 92, 88, 1, 40, 5, 99, 100, 77, 20, 1, 80]
   let letters = ['d', 'b', 'c', 'a']
-  let randomNumbs = [];
   let randomLetters = [];
-
-
-  const randGenerator = (min, max, lengthNumber) => {
-    for (let i = 0; i < lengthNumber; i++) {
-      randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
-    }
-    return randomNumbs
-  }
-
-
-
-  randGenerator(1, 100, 100)
 
   function ranLetters() {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -68,7 +55,7 @@ describe('mergeSort', () => {
     assert.deepEqual(mergeSort(testerNumb), [9, 19, 41, 75, 76])
   })
 
-  it('should sort negative numbers', () => {
+  it('should sort positive and negative numbers', () => {
     let negNumbs = [10, -4, -2, 18]
 
     assert.deepEqual(mergeSort(negNumbs), [-4, -2, 10, 18])
@@ -76,21 +63,20 @@ describe('mergeSort', () => {
 
   it('should return an array', () => {
     let testerNumb2 = [90, 1, 25, 7, 30]
-
     let sorted = mergeSort(testerNumb2)
 
     assert.equal(Array.isArray(sorted), true)
   })
 
   it('should sort random numbers', () => {
-    let newRandNumbs = randGenerator(1, 100, 100)
+    let newRandNumbs = randGenerator(1, 100, 35000)
     let rands = mergeSort(newRandNumbs)
 
     assert.equal(rands[0] <= rands[1], true)
     assert.equal(rands[0] <= rands[3], true)
     assert.equal(rands[1] <= rands[2], true)
     assert.equal(rands[17] >= rands[2], true)
-    assert.equal(rands[98] <= rands[99], true)
+    assert.equal(rands[rands.length - 2] <= rands[rands.length - 1], true)
   })
 
   it('should always have the last index be the largest number', () => {
@@ -110,6 +96,31 @@ describe('mergeSort', () => {
 
     assert.deepEqual(sortedLength, [2, 4, 5, 9])
     assert.equal(sortedLength.length, 4)
+  })
+
+})
+
+describe('merge of merge-sort', () => {
+
+  it('should be a function', () =>{
+    assert.isFunction(merge)
+  })
+
+  it('should return an array', () => {
+    let testerNumb = [2, 7, 90, 1]
+    let testerNumb2 = [90, 1, 25, 7, 30]
+    let sorted = merge(testerNumb, testerNumb2)
+
+    assert.equal(Array.isArray(sorted), true)
+  })
+
+  it('the new array length should === the old arrays combined length', () => {
+    let testerNumb = [2, 7, 90, 1]
+    let testerNumb2 = [90, 1, 25, 7, 30]
+    let origLengths = testerNumb.length + testerNumb2.length
+    let sorted = merge(testerNumb, testerNumb2)
+
+    assert.equal(sorted.length === origLengths, true)
   })
 
 })

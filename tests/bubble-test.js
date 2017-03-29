@@ -1,20 +1,11 @@
 import { assert } from 'chai'
-import bubbleSort from '../scripts/bubble-sort'
-
+import {bubbleSort} from '../scripts/bubble-sort'
+import {randGenerator} from '../scripts/randGenerator'
 
 describe('bubbleSort', () => {
   let numbs = [5, 3, 1, 4, 2]
   let letters = ['d', 'b', 'c', 'a']
   let randomLetters = []
-
-  const randGenerator = (min, max, lengthNumber) => {
-    let randomNumbs = [];
-
-    for (let i = 0; i < lengthNumber; i++) {
-      randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
-    }
-    return randomNumbs
-  }
 
   function ranLetters() {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -85,7 +76,8 @@ describe('bubbleSort', () => {
     assert.equal(randNumb[0] <= randNumb[3], true)
     assert.equal(randNumb[1] <= randNumb[2], true)
     assert.equal(randNumb[17] >= randNumb[2], true)
-    assert.equal(randNumb[18] <= randNumb[19], true)
+    assert.equal(randNumb[randNumb.length - 2] <=
+      randNumb[randNumb.length - 1], true)
   })
 
   it('should always have the last index be the largest number', () => {
@@ -99,14 +91,11 @@ describe('bubbleSort', () => {
     }
     ran()
 
-    // var randomArray = genRandomArray(500);
 
     bubbleSort(randomNumbers)
     assert.equal(randomNumbers[randomNumbers.length - 1] >=
     randomNumbers[randomNumbers.length - 2], true)
-
   })
-
 
   it('should keep array length the same', () => {
     let lengthArray = [2, 9, 5, 4]
