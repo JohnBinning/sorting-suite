@@ -68,6 +68,12 @@ describe('mergeSort', () => {
     assert.deepEqual(mergeSort(testerNumb), [9, 19, 41, 75, 76])
   })
 
+  it('should sort negative numbers', () => {
+    let negNumbs = [10, -4, -2, 18]
+
+    assert.deepEqual(mergeSort(negNumbs), [-4, -2, 10, 18])
+  })
+
   it('should return an array', () => {
     let testerNumb2 = [90, 1, 25, 7, 30]
 

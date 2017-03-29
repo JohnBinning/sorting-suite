@@ -10,6 +10,7 @@ describe('insertionSort', () => {
 
   const randGenerator = (min, max, lengthNumber) => {
     let randomNumbs = [];
+
     for (let i = 0; i < lengthNumber; i++) {
       randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
     }
@@ -67,6 +68,12 @@ describe('insertionSort', () => {
     assert.deepEqual(insertionSort(testerNumb), [9, 19, 41, 75, 76])
   })
 
+  it('should sort negative numbers', () => {
+    let negNumbs = [10, -4, -2, 18]
+
+    assert.deepEqual(insertionSort(negNumbs), [-4, -2, 10, 18])
+  })
+
   it('should return an array', () => {
     let testerNumb2 = [90, 1, 25, 7, 30]
 
@@ -77,10 +84,10 @@ describe('insertionSort', () => {
 
   it('should sort random numbers', () => {
 
-    let speedLetters = randGenerator(1, 100, 5000)
-    let randNumb = insertionSort(speedLetters)
+    let speedNumbers = randGenerator(1, 100, 5000)
+    // let randNumb = insertionSort(speedNumbers)
 
-    let rands = insertionSort(randNumb)
+    let rands = insertionSort(speedNumbers)
 
     assert.equal(rands[0] <= rands[1], true)
     assert.equal(rands[0] <= rands[3], true)

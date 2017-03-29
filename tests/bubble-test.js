@@ -5,17 +5,16 @@ import bubbleSort from '../scripts/bubble-sort'
 describe('bubbleSort', () => {
   let numbs = [5, 3, 1, 4, 2]
   let letters = ['d', 'b', 'c', 'a']
-  let randomNumbers = []
   let randomLetters = []
 
-  function ran () {
-    for (let i = 0; i < 20; i++) {
-      randomNumbers.push(Math.floor(Math.random() * (100 - 1)) + 1)
-    }
-    return randomNumbers
-  }
+  const randGenerator = (min, max, lengthNumber) => {
+    let randomNumbs = [];
 
-  ran()
+    for (let i = 0; i < lengthNumber; i++) {
+      randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
+    }
+    return randomNumbs
+  }
 
   function ranLetters() {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -65,6 +64,12 @@ describe('bubbleSort', () => {
     assert.deepEqual(bubbleSort(testerNumb), [9, 19, 41, 75, 76])
   })
 
+  it('should sort negative numbers', () => {
+    let negNumbs = [10, -4, -2, 18]
+
+    assert.deepEqual(bubbleSort(negNumbs), [-4, -2, 10, 18])
+  })
+
   it('should return an array', () => {
     let testerNumb2 = [90, 1, 25, 7, 30]
 
@@ -73,13 +78,14 @@ describe('bubbleSort', () => {
   })
 
   it('should sort random numbers', () => {
-    bubbleSort(randomNumbers)
+    let speedNumbers = randGenerator(1, 100, 5000)
+    let randNumb = bubbleSort(speedNumbers)
 
-    assert.equal(randomNumbers[0] <= randomNumbers[1], true)
-    assert.equal(randomNumbers[0] <= randomNumbers[3], true)
-    assert.equal(randomNumbers[1] <= randomNumbers[2], true)
-    assert.equal(randomNumbers[17] >= randomNumbers[2], true)
-    assert.equal(randomNumbers[18] <= randomNumbers[19], true)
+    assert.equal(randNumb[0] <= randNumb[1], true)
+    assert.equal(randNumb[0] <= randNumb[3], true)
+    assert.equal(randNumb[1] <= randNumb[2], true)
+    assert.equal(randNumb[17] >= randNumb[2], true)
+    assert.equal(randNumb[18] <= randNumb[19], true)
   })
 
   it('should always have the last index be the largest number', () => {
