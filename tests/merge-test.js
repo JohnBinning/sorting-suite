@@ -1,15 +1,15 @@
-const mergeSort = require('../scripts/merge-sort')
-const assert = require('chai').assert
-
+import { assert } from 'chai'
+import {mergeSort, merge} from '../scripts/merge-sort'
 
 describe('mergeSort', () => {
   let numbs = [6, 30, 1, 99, 2, 98, 7, 92, 88, 1, 40, 5, 99, 100, 77, 20, 1, 80]
   let letters = ['d', 'b', 'c', 'a']
-  let randomNumbs = [];
   let randomLetters = [];
 
 
   const randGenerator = (min, max, lengthNumber) => {
+    let randomNumbs = [];
+
     for (let i = 0; i < lengthNumber; i++) {
       randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
     }
@@ -83,7 +83,8 @@ describe('mergeSort', () => {
   })
 
   it('should sort random numbers', () => {
-    let newRandNumbs = randGenerator(1, 100, 100)
+    let newRandNumbs = randGenerator(1, 100, 5000)
+    console.log(newRandNumbs.length)
     let rands = mergeSort(newRandNumbs)
 
     assert.equal(rands[0] <= rands[1], true)

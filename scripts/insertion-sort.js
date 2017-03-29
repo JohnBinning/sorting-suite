@@ -1,4 +1,4 @@
-const insertionSort = (arr, sorted = []) => {
+export const insertionSort = (arr, sorted = []) => {
   if (arr.length == 0) {
     return sorted
   }
@@ -17,7 +17,7 @@ const insertionSort = (arr, sorted = []) => {
 // try with two for loops and what is speed difference / how many items can it sort?
 
 
-// const insertionSort = (arr) => {
+// export const insertionSort = (arr) => {
 //   for (let i = 1; i < arr.length; i++) {
 //     let greaterIndexI = arr[i]
 //
@@ -31,7 +31,7 @@ const insertionSort = (arr, sorted = []) => {
 //   return arr
 // }
 
-// const insertionSort = (arr) => {
+// export const insertionSort = (arr) => {
 //   for (let i = 1; i < arr.length; i++) {
 //     let greaterIndexI = arr[i]
 //
@@ -47,5 +47,4 @@ const insertionSort = (arr, sorted = []) => {
 //   return arr
 // }
 
-
-module.exports = insertionSort;
+// export default insertionSort;

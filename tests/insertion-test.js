@@ -1,5 +1,5 @@
-const insertionSort = require('../scripts/insertion-sort')
-const assert = require('chai').assert
+import { assert } from 'chai'
+import {insertionSort} from '../scripts/insertion-sort'
 
 
 describe('insertionSort', () => {

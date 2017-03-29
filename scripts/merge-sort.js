@@ -1,4 +1,4 @@
-function mergeSort (arr) {
+export const mergeSort = (arr) => {
 
   if (arr.length === 1) {
     return arr
@@ -10,7 +10,7 @@ function mergeSort (arr) {
   return merge(mergeSort(leftArray), mergeSort(rightArray))
 }
 
-function merge (leftArray, rightArray)  {
+export const merge = (leftArray, rightArray) => {
   var sorted = []
 
   while (leftArray.length && rightArray.length) {
@@ -32,4 +32,4 @@ function merge (leftArray, rightArray)  {
   return sorted
 }
 
-module.exports = mergeSort;
+// export default mergeSort;

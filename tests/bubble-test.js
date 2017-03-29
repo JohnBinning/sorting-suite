@@ -1,5 +1,5 @@
 import { assert } from 'chai'
-import bubbleSort from '../scripts/bubble-sort'
+import {bubbleSort} from '../scripts/bubble-sort'
 
 
 describe('bubbleSort', () => {
