@@ -18,7 +18,7 @@ describe('mergeSort', () => {
   }
 
   ranLetters()
-
+  
   it('should be a function', () =>{
     assert.isFunction(mergeSort)
   })
@@ -121,6 +121,22 @@ describe('merge of merge-sort', () => {
     let sorted = merge(testerNumb, testerNumb2)
 
     assert.equal(sorted.length === origLengths, true)
+  })
+
+  it('should merge two sorted arrays', () => {
+    let testerNumb = [1, 5, 9]
+    let testerNumb2 = [2, 6, 10]
+    let sorted = merge(testerNumb, testerNumb2)
+
+    assert.deepEqual(sorted, [1, 2, 5, 6, 9, 10])
+  })
+
+  it('should merge two sorted arrays with negative values', () => {
+    let testerNumb = [-1, -5, 9]
+    let testerNumb2 = [-2, 6, 10]
+    let sorted = merge(testerNumb, testerNumb2)
+
+    assert.deepEqual(sorted, [-2, -1, -5, 6, 9, 10])
   })
 
 })

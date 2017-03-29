@@ -81,20 +81,12 @@ describe('bubbleSort', () => {
   })
 
   it('should always have the last index be the largest number', () => {
-    let randomNumbers = []
+    let speedNumbers = randGenerator(1, 100, 5000)
+    let randNumb = bubbleSort(speedNumbers)
 
-    function ran () {
-      for (let i = 0; i < 20; i++) {
-        randomNumbers.push(Math.floor(Math.random() * (100 - 1)) + 1)
-      }
-      return randomNumbers
-    }
-    ran()
-
-
-    bubbleSort(randomNumbers)
-    assert.equal(randomNumbers[randomNumbers.length - 1] >=
-    randomNumbers[randomNumbers.length - 2], true)
+    bubbleSort(randNumb)
+    assert.equal(randNumb[randNumb.length - 1] >=
+    randNumb[randNumb.length - 2], true)
   })
 
   it('should keep array length the same', () => {
