@@ -1,7 +1,7 @@
 
 let container;
 
-// export const bubbleSort = (arr) => {
+// export const bubbleSort = arr => {
 //   for (let i = 0; i < arr.length - 1; i++) {
 //     if (arr[i + 1] < arr[i]) {
 //       container = arr[i];
@@ -15,7 +15,7 @@ let container;
 
 //think about using another for loop rather than recursion
 
-export const bubbleSort = (arr) => {
+export const bubbleSort = arr => {
   for (let i = 0; i < arr.length - 1; i++) {
     for (var j = 0; j < arr.length - 1; j++) {
       if (arr[j + 1] < arr[j]) {

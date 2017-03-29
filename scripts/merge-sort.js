@@ -1,4 +1,4 @@
-export const mergeSort = (arr) => {
+export const mergeSort = arr => {
 
   if (arr.length === 1) {
     return arr
@@ -10,26 +10,46 @@ export const mergeSort = (arr) => {
   return merge(mergeSort(leftArray), mergeSort(rightArray))
 }
 
+// export const merge = (leftArray, rightArray) => {
+//   var sorted = []
+//
+//   while (leftArray.length && rightArray.length) {
+//     if (leftArray[0] >= rightArray[0]) {
+//       sorted.push(rightArray.shift())
+//     } else {
+//       sorted.push(leftArray.shift())
+//     }
+//   }
+//
+//   while (leftArray.length) {
+//     sorted.push(leftArray.shift())
+//   }
+//
+//   while (rightArray.length) {
+//     sorted.push(rightArray.shift())
+//   }
+//
+//   return sorted
+// }
+
 export const merge = (leftArray, rightArray) => {
   var sorted = []
 
-  while (leftArray.length && rightArray.length) {
+  while (leftArray.length || rightArray.length) {
+
     if (leftArray[0] >= rightArray[0]) {
       sorted.push(rightArray.shift())
+
+    } else if (leftArray.length < 1) {
+      sorted.push(rightArray.shift())
+
+    } else if (rightArray.length < 1) {
+      sorted.push(leftArray.shift())
+
     } else {
       sorted.push(leftArray.shift())
     }
   }
-
-  while (leftArray.length) {
-    sorted.push(leftArray.shift())
-  }
-
-  while (rightArray.length) {
-    sorted.push(rightArray.shift())
-  }
-
   return sorted
 }
-
 // export default mergeSort;

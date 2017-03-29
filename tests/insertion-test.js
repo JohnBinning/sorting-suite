@@ -1,23 +1,12 @@
 import { assert } from 'chai'
 import {insertionSort} from '../scripts/insertion-sort'
+import {randGenerator} from '../scripts/randGenerator'
 
 
 describe('insertionSort', () => {
   let numbs = [6, 30, 1, 99, 2, 98, 7, 92, 88, 1, 40, 5, 99, 100, 77, 20, 1, 80]
   let letters = ['d', 'b', 'c', 'a']
   let randomLetters = [];
-
-
-  const randGenerator = (min, max, lengthNumber) => {
-    let randomNumbs = [];
-
-    for (let i = 0; i < lengthNumber; i++) {
-      randomNumbs.push(Math.floor(Math.random() * (max - min)) + min)
-    }
-    return randomNumbs
-  }
-
-  randGenerator(1, 100, 100)
 
   function ranLetters() {
     let alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -83,31 +72,19 @@ describe('insertionSort', () => {
   })
 
   it('should sort random numbers', () => {
-
     let speedNumbers = randGenerator(1, 100, 5000)
-    // let randNumb = insertionSort(speedNumbers)
-
     let rands = insertionSort(speedNumbers)
 
-    assert.equal(rands[0] <= rands[1], true)
+    assert.equal(speedNumbers[0] <= speedNumbers[1], true)
     assert.equal(rands[0] <= rands[3], true)
     assert.equal(rands[1] <= rands[2], true)
     assert.equal(rands[17] >= rands[2], true)
-    assert.equal(rands[18] <= rands[19], true)
+    assert.equal(rands[rands.length - 2] <= rands[rands.length - 1], true)
   })
 
   it('should always have the last index be the largest number', () => {
-    let randomNumbers = []
-
-    function ran () {
-      for (let i = 0; i < 20; i++) {
-        randomNumbers.push(Math.floor(Math.random() * (100 - 1)) + 1)
-      }
-      return randomNumbers
-    }
-    ran()
-
-    let sorted = insertionSort(randomNumbers)
+    let randomNumbersArray = randGenerator(1, 100, 5000)
+    let sorted = insertionSort(randomNumbersArray)
 
     assert.equal(sorted[sorted.length - 1] >=
     sorted[sorted.length - 2], true)
