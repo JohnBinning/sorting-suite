@@ -84,7 +84,6 @@ describe('bubbleSort', () => {
     let speedNumbers = randGenerator(1, 100, 5000)
     let randNumb = bubbleSort(speedNumbers)
 
-    bubbleSort(randNumb)
     assert.equal(randNumb[randNumb.length - 1] >=
     randNumb[randNumb.length - 2], true)
   })
