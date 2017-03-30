@@ -18,7 +18,7 @@ describe('mergeSort', () => {
   }
 
   ranLetters()
-  
+
   it('should be a function', () =>{
     assert.isFunction(mergeSort)
   })

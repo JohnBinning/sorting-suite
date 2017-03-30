@@ -14,8 +14,6 @@
 //   return insertionSort(arr, sorted);
 // }
 
-// try with two for loops and what is speed difference / how many items can it sort?
-
 
 // export const insertionSort = arr => {
 //   for (let i = 1; i < arr.length; i++) {
