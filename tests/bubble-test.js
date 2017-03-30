@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import {bubbleSort} from '../scripts/bubble-sort'
-import {randGenerator} from '../scripts/randGenerator'
+import { bubbleSort } from '../scripts/bubble-sort'
+import { randGenerator } from '../scripts/randGenerator'
 
 describe('bubbleSort', () => {
   let numbs = [5, 3, 1, 4, 2]
@@ -19,7 +19,7 @@ describe('bubbleSort', () => {
 
   ranLetters()
 
-  it('should be a function', () =>{
+  it('should be a function', () => {
     assert.isFunction(bubbleSort)
   })
 

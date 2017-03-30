@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import {mergeSort, merge} from '../scripts/merge-sort'
-import {randGenerator} from '../scripts/randGenerator'
+import { mergeSort, merge } from '../scripts/merge-sort'
+import { randGenerator } from '../scripts/randGenerator'
 
 describe('mergeSort', () => {
   let numbs = [6, 30, 1, 99, 2, 98, 7, 92, 88, 1, 40, 5, 99, 100, 77, 20, 1, 80]
@@ -19,7 +19,7 @@ describe('mergeSort', () => {
 
   ranLetters()
 
-  it('should be a function', () =>{
+  it('should be a function', () => {
     assert.isFunction(mergeSort)
   })
 
@@ -102,7 +102,7 @@ describe('mergeSort', () => {
 
 describe('merge of merge-sort', () => {
 
-  it('should be a function', () =>{
+  it('should be a function', () => {
     assert.isFunction(merge)
   })
 

@@ -1,6 +1,6 @@
 import { assert } from 'chai'
-import {insertionSort} from '../scripts/insertion-sort'
-import {randGenerator} from '../scripts/randGenerator'
+import { insertionSort } from '../scripts/insertion-sort'
+import { randGenerator } from '../scripts/randGenerator'
 
 
 describe('insertionSort', () => {
@@ -20,7 +20,7 @@ describe('insertionSort', () => {
 
   ranLetters()
 
-  it('should be a function', () =>{
+  it('should be a function', () => {
     assert.isFunction(insertionSort)
   })
 
